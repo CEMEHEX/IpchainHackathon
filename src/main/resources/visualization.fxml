@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+
+
+<GridPane alignment="center" hgap="10" prefHeight="567.0" prefWidth="434.0" vgap="10"  xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
+   <children>
+      <ImageView fx:id="astImg" fitHeight="478.0" fitWidth="435.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</GridPane>

@@ -25,7 +25,12 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.github.cretz.kastree/kastree-ast-jvm -->
+        <dependency>
+            <groupId>com.github.cretz.kastree</groupId>
+            <artifactId>kastree-ast-psi</artifactId>
+            <version>0.3.0</version>
+        </dependency>
 
     </dependencies>
 
