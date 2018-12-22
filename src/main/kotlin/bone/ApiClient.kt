@@ -69,6 +69,7 @@ object ApiClient {
         return objectId
     }
 
+    @JvmStatic
     fun zaebis(sources:String, description:String): String {
         val objectId = createObject(sources,description)
         val o2 = acceptRules(objectId)
