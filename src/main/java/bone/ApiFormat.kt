@@ -19,13 +19,17 @@ data class Actor(
         val type: String
 )
 
+data class AstFormat(val sources: String)
+
 @Serializable
 data class Creazion(
     val crCodes: List<Int>,
     val nameIP: String,
     val typeIP: String,
     val description: String,
-    val actorIP: List<Actor>?
+    val actorIP: List<Actor>?,
+    val trOthAttr: AstFormat
+
 ) : TranstactionData()
 
 @Serializable

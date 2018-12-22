@@ -1,6 +1,5 @@
 package bone
 
 fun main(args: Array<String>) {
-    println("Hello")
-    ApiClient.zaebis("smth", "smth")
+    ApiClient.zaebis("big big source code", "smth")
 }

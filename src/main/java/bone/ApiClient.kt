@@ -49,10 +49,12 @@ object ApiClient {
         }
     }
 
-    fun createObject(description: String): ObjectId {
+    fun createObject(sources: String,description: String): ObjectId {
         val actor = Actor("Иван Иванов", "Автор")
         val transtaction = Transtaction("C", "C1", "general", null,
-                data=Creazion(listOf(0), "New algorithm", "algorithm", description, listOf(actor)))
+                data=Creazion(listOf(0), "New algorithm", "algorithm", description,
+                        listOf(actor),
+                        AstFormat(sources)))
         val gson = Gson()
         val resp = postRequest("proto/transactions", gson.toJson(transtaction))
         if (resp.statusCode == 200) {
@@ -71,7 +73,7 @@ object ApiClient {
     }
 
     fun zaebis(sources:String, description:String): String {
-        val objectId = createObject(description)
+        val objectId = createObject(sources,description)
         val o2 = acceptRules(objectId)
         return o2
     }
