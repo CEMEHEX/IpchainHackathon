@@ -70,10 +70,9 @@ object ApiClient {
     }
 
     @JvmStatic
-    fun zaebis(sources:String, description:String): String {
-        val objectId = createObject(sources,description)
-        val o2 = acceptRules(objectId)
-        return o2
+    fun sendAstWithDescription(astJson:String, description:String): String {
+        val objectId = createObject(astJson,description)
+        return acceptRules(objectId)
     }
 
 }
