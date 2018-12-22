@@ -2,7 +2,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
-public class Controller {
+import static ast.AstVisualizerKt.invokeVisualizer;
+
+public class MainViewController {
 
     @FXML
     private TextArea descriptionTextArea;
@@ -14,5 +16,10 @@ public class Controller {
         String pseudocode = pseudocodeTextArea.getText();
         //api.sendblablabla(description, pseudocode
         System.out.println(String.format("description: %s\npseudocode: %s\n", description, pseudocode));
+    }
+
+    public void onVisualizeAST(MouseEvent mouseEvent) {
+        String code = pseudocodeTextArea.getText();
+        invokeVisualizer(code);
     }
 }
