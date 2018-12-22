@@ -1,11 +1,7 @@
 package bone
 
-import kotlinx.serialization.Serializable
-
-@Serializable
 abstract class TranstactionData
 
-@Serializable
 data class Transtaction(
     val type: String,
     val ccID: String,
@@ -21,7 +17,6 @@ data class Actor(
 
 data class AstFormat(val sources: String)
 
-@Serializable
 data class Creazion(
     val crCodes: List<Int>,
     val nameIP: String,
@@ -32,14 +27,12 @@ data class Creazion(
 
 ) : TranstactionData()
 
-@Serializable
 data class Action(
         val member: String,
         val memberID: String,
         val type: String
 )
 
-@Serializable
 data class TransactionRegistred(
         val transactionID: String,
         val timestamp: String,
