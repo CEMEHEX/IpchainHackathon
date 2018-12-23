@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <GridPane alignment="center" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewController">
     <children>
@@ -45,7 +46,10 @@
                                 <Label text="Описание" GridPane.rowIndex="2" />
                                 <TextArea fx:id="descriptionTextArea" prefHeight="200.0" prefWidth="268.0" promptText="Описание вашего алгоритма" GridPane.rowIndex="3" />
                                 <Label text="Референсная реализация на python" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
-                                <TextArea fx:id="pseudocodeTextArea" onKeyTyped="#onCodeKeyTyped" prefHeight="200.0" prefWidth="200.0" promptText="Код на python" GridPane.rowIndex="5" />
+                                <TextArea fx:id="pseudocodeTextArea" onKeyTyped="#onCodeKeyTyped" prefHeight="200.0" prefWidth="200.0" promptText="Код на python" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Ubuntu Mono" size="14.0" />
+                                 </font></TextArea>
                               <HBox alignment="CENTER" prefHeight="66.0" prefWidth="414.0" spacing="50.0" GridPane.rowIndex="6">
                                  <children>
                                       <Button mnemonicParsing="false" onMouseClicked="#onSendClicked" prefHeight="38.0" text="Депонировать" />
