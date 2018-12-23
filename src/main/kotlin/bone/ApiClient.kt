@@ -46,12 +46,29 @@ object ApiClient {
         }
     }
 
-    fun createObject(sources: String,description: String): ObjectId {
-        val actor = Actor("Иван Иванов", "Автор")
+    fun createObject(name: String, sources: String, description: String): ObjectId {
+        val actor = Actor("Автор команда#2", "Автор")
         val transtaction = Transtaction("C", "C1", "general", null,
-                data=Creazion(listOf(0), "New algorithm", "algorithm", description,
+                data = Creazione(listOf(0), name, "algorithm", description,
                         listOf(actor),
                         AstFormat(sources)))
+        val gson = Gson()
+        val resp = postRequest("proto/transactions", gson.toJson(transtaction))
+        if (resp.statusCode == 200) {
+            info(resp.text)
+            val respData = gson.fromJson<TransactionRegistred>(resp.text, TransactionRegistred::class.java)
+            if (respData.actions.size != 1) {
+                throw ApiException("Actions size is ${respData.actions.size}")
+            }
+            return respData.actions[0].memberID
+        }
+        throw ApiException("No response from server")
+    }
+
+    fun modifyObjectActor(objID: String, name: String, type: String): ObjectId {
+        val actor = Actor(name, type)
+        val transtaction = Transtaction("A", "A1", "general", objID,
+                data = Accesso(listOf(actor)))
         val gson = Gson()
         val resp = postRequest("proto/transactions", gson.toJson(transtaction))
         if (resp.statusCode == 200) {
@@ -70,8 +87,8 @@ object ApiClient {
     }
 
     @JvmStatic
-    fun sendAstWithDescription(astJson:String, description:String): String {
-        val objectId = createObject(astJson,description)
+    fun sendAstWithDescription(name:String, astJson:String, description:String): String {
+        val objectId = createObject(name, astJson,description)
         return acceptRules(objectId)
     }
 

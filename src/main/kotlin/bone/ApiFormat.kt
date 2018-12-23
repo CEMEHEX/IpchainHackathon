@@ -3,12 +3,12 @@ package bone
 abstract class TranstactionData
 
 data class Transtaction(
-    val type: String,
-    val ccID: String,
-    val formatID: String,
-    val objID: String?,
-    val data: TranstactionData
-    )
+        val type: String,
+        val ccID: String,
+        val formatID: String,
+        val objID: String?,
+        val data: TranstactionData
+)
 
 data class Actor(
         val name: String,
@@ -17,14 +17,18 @@ data class Actor(
 
 data class AstFormat(val sources: String)
 
-data class Creazion(
-    val crCodes: List<Int>,
-    val nameIP: String,
-    val typeIP: String,
-    val description: String,
-    val actorIP: List<Actor>?,
-    val trOthAttr: AstFormat
+data class Creazione(
+        val crCodes: List<Int>,
+        val nameIP: String,
+        val typeIP: String,
+        val description: String,
+        val actorIP: List<Actor>?,
+        val trOthAttr: AstFormat
+) : TranstactionData()
 
+
+data class Accesso(
+        val actorIP: List<Actor>?
 ) : TranstactionData()
 
 data class Action(

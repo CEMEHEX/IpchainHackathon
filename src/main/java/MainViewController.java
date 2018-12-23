@@ -17,7 +17,7 @@ public class MainViewController {
         String pseudocode = pseudocodeTextArea.getText();
 
         String jsonAst = generateAstJsonResponse(pseudocode);
-        ApiClient.sendAstWithDescription(jsonAst, description);
+        ApiClient.sendAstWithDescription("Team #2 algo",jsonAst, description);
         System.out.println(String.format("description: %s\npseudocode: %s\n", description, pseudocode));
     }
 }
